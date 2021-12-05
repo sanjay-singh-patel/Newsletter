@@ -33,13 +33,7 @@ def mail_letter(request):
             form.save()
             title = form.cleaned_data.get('title')
             message = form.cleaned_data.get('message')
-            send_mail(
-                title, 
-                message,
-                '',
-                mail_list,
-                fail_silently=False,   
-            )
+            send_mail(title, message,'',mail_list,fail_silently=False)
             messages.success(request,'Mail has been sent')
             return redirect('mail-letter')
     else:
